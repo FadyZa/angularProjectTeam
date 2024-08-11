@@ -1,0 +1,24 @@
+.ng-touched.ng-invalid:not(form, div) {
+    border: 5px solid #a94442;
+    outline: none;
+    /* red */
+}
+
+.err {
+    display: none;
+}
+
+.form-control.ng-touched.ng-invalid+.err {
+    display: block;
+}
+
+.alert div {
+    background-color: #fed3d3;
+    color: #820000;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
