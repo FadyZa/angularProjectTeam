@@ -6,7 +6,8 @@ import { Component, EventEmitter, Output, output } from '@angular/core';
 import { ProdCardComponent } from '../../shared/prod-card/prod-card.component';
 import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
 import { LoaderComponent } from "../../shared/loader/loader.component";
-
+import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -24,7 +25,7 @@ export class HomeComponent {
 
   onPageChange = new EventEmitter<number>();
 
-  constructor(private _productsService: ProductsService) {
+  constructor(private _productsService: ProductsService,private _cart:CartService,private router:Router) {
     this._productsService.getAllProducts().subscribe({
       next: (res) => {
         this.products = res.data
@@ -45,6 +46,6 @@ export class HomeComponent {
     this.currentPage = event.pageIndex;
   }
 
-
+  
 
 }
