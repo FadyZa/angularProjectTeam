@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { authGuard } from '../../auth.guard';
 import { CartComponent } from './pages/cart/cart.component';
 import { ChangePassComponent } from './pages/change-pass/change-pass.component';
+import { SettingComponent } from './pages/setting/setting.component';
 // import {ProductsComponent} from "./pages/products/products.component"
 
 export const routes: Routes = [
@@ -26,10 +27,12 @@ export const routes: Routes = [
         loadComponent: () => import("./pages/register/register.component").then(m => m.RegisterComponent)
     },
 
+    { path: "setting", canActivate: [authGuard], component: SettingComponent },
+
     // other routes
 
-    {path:"cart",canActivate:[authGuard],component:CartComponent},
-    {path:"changePass",canActivate:[authGuard],component:ChangePassComponent}
+    { path: "cart", canActivate: [authGuard], component: CartComponent },
+    // { path: "changePass", canActivate: [authGuard], component: ChangePassComponent }
     // {path:"login",canActivate:[authGuard],component:LoginComponent},
     // {path:"register",canActivate:[authGuard],component:RegisterComponent}
 
