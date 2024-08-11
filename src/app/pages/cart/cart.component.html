@@ -6,7 +6,7 @@
     <div id="cart-details  shadow-lg" class="">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="fs-3 mt-3 fw-bold">Cart Shop</h1>
-        <a class="btn btn-success text-white mt-3">Check Out</a>
+        <a [routerLink]="['/shipping/', userCart?.data?._id]" class="btn btn-success text-white mt-3">Check Out</a>
       </div>
       <div class="d-flex justify-content-between align-items-center mb-2">
         <div>

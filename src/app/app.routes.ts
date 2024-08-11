@@ -3,11 +3,13 @@ import { Routes } from '@angular/router';
 import { authGuard } from '../../auth.guard';
 import { CartComponent } from './pages/cart/cart.component';
 import { ChangePassComponent } from './pages/change-pass/change-pass.component';
+import { ShipingAddressComponent } from './pages/shiping-address/shiping-address.component';
 // import {ProductsComponent} from "./pages/products/products.component"
 
 export const routes: Routes = [
     // home route
     { path: "", redirectTo: "home", pathMatch: "full" },
+    { path: "allorders", redirectTo: "home", pathMatch: "full" },
     {
         path: "home",
         loadComponent: () => import("./pages/home/home.component").then(m => m.HomeComponent)
@@ -29,7 +31,8 @@ export const routes: Routes = [
     // other routes
 
     {path:"cart",canActivate:[authGuard],component:CartComponent},
-    {path:"changePass",canActivate:[authGuard],component:ChangePassComponent}
+    {path:"changePass",canActivate:[authGuard],component:ChangePassComponent},
+    {path:"shipping/:id",canActivate:[authGuard],component:ShipingAddressComponent}
     // {path:"login",canActivate:[authGuard],component:LoginComponent},
     // {path:"register",canActivate:[authGuard],component:RegisterComponent}
 
