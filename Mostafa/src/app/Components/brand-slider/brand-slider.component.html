@@ -1,0 +1,11 @@
+<p-carousel [value]="brands" [numVisible]="4" [numScroll]="1" [circular]="true">
+  <ng-template let-brand pTemplate="item">
+    <div class="brand-carousel-item">
+      <img 
+        [src]="brand.image"
+        (click)="getProductByBrand(brand._id)"
+        alt="{{ brand.name }}" 
+        class="w-100">
+    </div>
+  </ng-template>
+</p-carousel>

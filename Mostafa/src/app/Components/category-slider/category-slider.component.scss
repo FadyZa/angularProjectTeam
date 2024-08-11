@@ -1,0 +1,44 @@
+.carousel-inner {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel-item {
+  display: inline-block;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 20px 20px;
+}
+
+.btn {
+  margin: 0 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.carousel .d-flex {
+  flex-wrap: nowrap;
+  justify-content: start;
+}
+
+.carousel-control-prev-icon {
+  background-image: url('../../../assets/left.png'); /* Replace with your icon */
+}
+
+.carousel-control-next-icon {
+  background-image: url('../../../assets/right.png'); /* Replace with your icon */
+}
+img{
+  height:250px ; 
+}
