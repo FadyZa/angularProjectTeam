@@ -1,28 +1,24 @@
-<nav class="navbar sticky-top navbar-expand-lg bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navColor">
     <div class="container gap-2">
-        <a class="navbar-brand" href="#">
-            <h2>Logo</h2>
-        </a>
-
+        <a class="navbar-brand text-white fs-2"><img src="../../../assets/images/logo.png" alt=""
+                class="w-50p me-3">Cartill</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <div class="navbar-nav w-100 gap-3 d-flex align-items-center">
-
-                @if(isUserHasToken){
+            <div class="navbar-nav ms-auto gap-3 d-flex align-items-center justify-content-end">
                 <div class="nav-item">
-                    <a class="btn btn-light p-2 fw-semibold " routerLink="products" routerLinkActive="active"
+                    <a class="btn btn-light p-2 fw-semibold " routerLink="home" routerLinkActive="active"
                         aria-current="page">
                         <i class="bi bi-basket2"></i>
-                        products
+                        Home
                     </a>
                 </div>
-
+                @if(isUserHasToken){
                 <div class="nav-item">
-                    <a class="btn p-2 fw-semibold ">
+                    <a class="btn btn-light p-2 fw-semibold " routerLink="cart" routerLinkActive="active">
                         <i class="bi bi-cart3"></i>
                         Cart
                     </a>
@@ -44,33 +40,42 @@
                                 out</button>
                         </li>
 
-                        <li class="border-top border-secondary">
-                            <a class="dropdown-item p-2" href="#">
-                                <i class="bi bi-person fs-5"></i>
-                                <span>My account</span>
+                        <hr />
+                        <li>
+                            <a class="dropdown-item p-2" routerLinkActive="active" routerLink="setting">
+                                <i class="bi mx-2 bi-gear"></i>
+                                <span>setting</span>
                             </a>
                         </li>
+
                         <li>
-                            <a class="dropdown-item p-2" href="#">
-                                <i class="bi bi-basket3"></i>
-                                <span>Orders</span>
+                            <a class="dropdown-item p-2" routerLink="cart" routerLinkActive="active">
+                                <i class="bi mx-2 bi-basket3"></i>
+                                <span>cart</span>
                             </a>
                         </li>
+
                         <li>
-                            <a class="dropdown-item p-2" href="#">
+                            <a class="dropdown-item p-2" href="#" routerLinkActive="active">
+                                <i class="bi mx-2 bi-bag-heart"></i>
+                                <span>WishList</span>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a class="dropdown-item p-2" href="#"  routerLink="changePass" >
                                 <i class="bi bi-bag-heart"></i>
-                                <span>Saved Items</span>
+                                <span>change password</span>
                             </a>
-                        </li>
+                        </li> -->
                         }
                         @else {
                         <li class="text-center my-2">
-                            <a routerLinkActive="btn-warning" routerLink="signin"
+                            <a routerLinkActive="btn-warning" routerLink="login"
                                 class="btn btn-secondary shadow w-75">sign
                                 in</a>
                         </li>
                         <li class="text-center my-2">
-                            <a routerLinkActive="btn-warning" routerLink="signup"
+                            <a routerLinkActive="btn-warning" routerLink="register"
                                 class="btn btn-secondary shadow w-75">sign
                                 up</a>
                         </li>

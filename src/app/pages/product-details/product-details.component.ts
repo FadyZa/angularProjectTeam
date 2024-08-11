@@ -4,6 +4,7 @@ import { ProductsService } from '../../services/products.service';
 import { NgForOf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LoaderComponent } from "../../shared/loader/loader.component";
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -19,7 +20,7 @@ export class ProductDetailsComponent {
 
   activeRoute = inject(ActivatedRoute);
 
-  constructor(private _productService: ProductsService) {
+  constructor(private _productService: ProductsService ,private _cart:CartService) {
     this.activeRoute.params.subscribe((params) => {
       this.id = params["id"];
       this._productService.getProductById(this.id).subscribe({
@@ -38,5 +39,16 @@ export class ProductDetailsComponent {
     return new Array(Math.floor(rate));
   }
 
+  add(productId: number): void {
+    console.log(productId);
+      this._cart.addToCart(productId).subscribe({
+        next:(res:any)=>{
+          console.log(res);
+        },
+        error:(err:any)=>{
+          console.log(err);
 
+        },
+      })
+    }
 }

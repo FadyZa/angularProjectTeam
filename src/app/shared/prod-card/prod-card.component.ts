@@ -2,6 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-prod-card',
@@ -12,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ProdCardComponent {
   router = inject(Router);
-
+  _cart=inject(CartService)
   @Input() products: any;
 
   getStarsCount(rate: number) {
@@ -24,5 +25,21 @@ export class ProdCardComponent {
     console.log(id);
     this.router.navigate(["product-details/", id])
   }
+  add(productId: number): void {
+    console.log(productId);
+    const token = localStorage.getItem('token'); // Replace 'authToken' with your token key
+    if (!token) {
+      this.router.navigate(['/login']); // Navigate to login page if no token
+    }
+    else{
+      this._cart.addToCart(productId).subscribe({
+        next:(res:any)=>{
+          console.log(res);
+        },
+        error:(err:any)=>{
+          console.log(err);
 
+        },
+      })}
+    }
 }
